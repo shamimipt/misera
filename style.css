@@ -1,0 +1,763 @@
+/*!
+Theme Name: Miresa
+Theme URI: https://www.github.com/miresa
+Author: Helloxpart
+Author URI: https://www.facebook.com/khshamimahmed
+Description: Miresa theme for WordPress takes us back to the blog, featuring a full range of post formats, each displayed beautifully in their own unique way. Design details abound, starting with a vibrant color scheme and matching header images, beautiful typography and icons, and a flexible layout that looks great on any device, big or small.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: miresa
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+a:hover, a:active {
+	outline: 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+	/* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+	/* Make sure select elements fit in widgets. */
+}
+
+.widget select {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 ;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+	/* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+	display: inline-block;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+	padding:5px;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+.issue_cat::after{
+	content: ', ';
+}
+.issue_cat:last-child::after{
+	content: none;
+}
+
+/*--------------------------------------------------------------
+## Minister Custom Style
+--------------------------------------------------------------*/
+.header_top_left h5{
+	text-transform: uppercase;
+}
+
+h2.site-title {
+    margin-top: 4px;
+    margin-bottom: 0px;
+}
+.tagcloud a{
+	font-size: 14px !important;
+}
+.blog_sidebar ul {
+    margin-left: 17px;
+}
+
+.content_sngl li {
+    list-style: disc;
+	padding-top:10px;
+	color: #06396a;
+}
+
+.footer_menu li:before {
+    position:  absolute;
+    content:  "\f105";
+    font-family:  fontAwesome;
+    margin-left: -16px;
+    color: #b5b5b5;
+}
+
+.menu-footer-container
+ ul {
+    margin-left: 17px;
+}
+
+.menu-footer-container ul li:hover:before {
+    color: #f01616;
+}
+.sl-wrapper, .sl-icon, .sl-count, .sl-loader {
+    padding: 0px!important;
+}
+
+.footer_img.home_footer_widget_content {
+    padding-top: 20px;
+}
+.footer_news_img img {
+    width: 74px;
+}
+.media-left img {
+    width: 101px;
+}
+
+#fof {
+    display: block;
+    width: 100%;
+    line-height: 1.6em;
+    text-align: center;
+    padding: 50px 0px;
+    margin-top: -100px;
+}
+#fof .hgroup{text-transform:uppercase;}
+#fof .hgroup h1{margin-bottom:25px; font-size:80px;}
+#fof .hgroup h1 span{display:inline-block; margin-left:5px; padding:2px; border:1px solid #CCCCCC; overflow:hidden;}
+#fof .hgroup h1 span strong{display:inline-block; padding:0 20px 20px; border:1px solid #CCCCCC; font-weight:normal;}
+#fof .hgroup h2{font-size:60px;}
+#fof .hgroup h2 span{display:block; font-size:30px;}
+#fof p{margin:25px 0 0 0; padding:0; font-size:16px;}
+#fof p:first-child{margin-top:0;}
+
+.minister-btn {
+    font-size: 13px;
+    color: #f01616;
+    font-weight: 700;
+}
+
+a.page-numbers {
+    padding: 8px 20px;
+    color: #707070;
+    background-color: #f6f6f6;
+    border: 1px solid #f6f6f6;
+    margin: 0 5px;
+    border-radius: 0px;
+}
+
+span.page-numbers.current {
+    background-color: #06396a;
+    border-color: #06396a;
+    color: #fff;
+    padding: 8px 20px;
+	border: 1px solid #f6f6f6;
+    margin: 0 5px;
+    border-radius: 0px;
+}
+.nav-links span {
+    padding: 8px 20px;
+    color: #707070;
+    background-color: #f6f6f6;
+    border: 1px solid #f6f6f6;
+    margin: 0 5px;
+    border-radius: 0px;
+}
+
+#blog_sidebar.blog_single.section_padding2 {
+    padding-bottom: 100px;
+    padding-top: 60px;
+}
+
+.logged-in .affix {
+    margin-top: 32px;
+}
+.blog_widget .subscribe_pannel .input-group {
+    position: relative;
+    display: block;
+    border-collapse: separate;
+}
+.subscribe_pannel .input-group input {
+    height: 45px;
+    padding: 10px 16px;
+    font-size: 13px;
+    line-height: 1.3333333;
+    border-radius: 0;
+}
+.subscribe_pannel .input-group-btn input.btn-default {
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3333333;
+    border-radius: 0;
+    width: 100%;
+    margin-top: 15px;
+    color: #f01616;
+    background: #fff;
+}
+
+.subscribe_pannel .mc4wp-form-fields {
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+
+.blog_sidebar .blog_grid_txt h3 {
+    color: #707070;
+}
+
+.blog_sidebar_single .post.type-post p{
+	margin:0px;
+}
+
+.blog_sidebar ol li {
+    margin-left: 17px;
+    list-style: decimal;
+}
+
+.blog_sidebar ul li{
+	
+	 list-style: disc;
+}
+
+.blog_sidebar table {
+    width:  90%;
+    text-align:  center;
+}
+
+.blog_sidebar table thead, .blog_sidebar table thead th, tr, th, td {
+    border: 1px solid #000;
+    padding: 2px;
+    text-align:  center;
+}
+
+.page-links a {
+    padding: 6px;
+}
+
+.page-links span {
+    padding: 5px;
+}
+
+.blog_meta span.minister {
+    padding-left: 0px;
+}
+
+.blog_grid_txt input[type="password"] {
+    padding: 3px 12px;
+    border: 1px solid #aaa7a7;
+    border-radius: 0;
+    margin-top: 19px;
+}
+
+.blog_grid_txt input[type="submit"] {
+    background-color: #06396a;
+    border-color: #06396a;
+    color: #fff;
+    padding: 4px 16px;
+    border: 1px solid #f6f6f6;
+    margin: 0 5px;
+    border-radius: 0px;
+}
+
+.comments-area .comment-list .comment p {
+    margin: 0px;
+}
+.comments-area .comment-list .comment h2 {
+    font-size: 30px !important;
+    color: #707070 !important;
+    font-weight: 500 !important;
+}
+
+.comments-area .comment-list .comment h3 {
+    font-size:  24px;
+    font-weight:  500;
+    color:  #707070;
+}
+
+.comments-area .comment-list .comment {
+    list-style: none;
+}
+
+.comment-author {
+    position:  relative;
+}
+
+.comment-author .avatar {
+    position: absolute;
+    left: -81px;
+    top: 7px;
+}
+
+.comment .comment-body {
+    margin-bottom: 30px;
+	margin-left: 65px;
+}
+.comment-list .comment .comment-body .comment-meta a.comment-reply-link {
+    margin-left: 90px;
+}
+
+.comment-list .comment .comment-meta a.url {
+    font-size: 18px;
+    font-weight: 800;
+}
+.comment-list .comment .comment-meta cite.fn {
+    font-size: 18px;
+    font-weight: 700;
+}
+.comment-respond h3#reply-title {
+    font-size: 24px;
+    color: #282828;
+    font-weight: 400;
+}
+p.form-submit input[type="submit"] {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 20px;
+    background-color:  #033566;
+    color:  #fff;
+    transition:  .7s;
+}
+
+p.form-submit input[type="submit"]:hover {
+    color: #033566;
+    background-color: #fff;
+    border-color: #033566;
+}
+select {
+    max-width: 100%;
+    height: 43px;
+}
+.blog_widget select {
+   width: 100%;
+}
+.page_widget select {
+    width: 100%;
+}
+.home_footer_widget select {
+    width: 100%;
+    margin-top: 11px;
+}
+.home_footer_widget table {
+    width: 100%;
+}
+.blog_sidebar.blog_right_sidebar .blog_sidebar_single .sticky {
+	position:relative;
+}
+.blog_sidebar.blog_right_sidebar .blog_sidebar_single .sticky:before {
+    position:  absolute;
+    content: 'Featured';
+    right: 55px;
+    background: #06396a;
+    padding:  6px 25px;
+    color:  #fff;
+}
+
+.blog_sidebar .blog_sidebar_single .sticky {
+	position:relative;
+}
+.blog_sidebar .blog_sidebar_single .sticky:before {
+    position:  absolute;
+    content: 'Featured';
+    right: 55px;
+    background: #06396a;
+    padding:  6px 25px;
+    color:  #fff;
+}
+
+.blog_grid_single .sticky {
+	position:relative;
+}
+.blog_grid_single .sticky:before {
+    position:  absolute;
+    content: 'Featured';
+    right: 0px;
+    background: #06396a;
+    padding:  6px 25px;
+    color:  #fff;
+}
+.home_footer_widget ul.children {
+    margin-left: 17px;
+}
+.home_footer_widget ul.sub-menu {
+    margin-left: 17px;
+}
+
+.home1_news_content .sticky {
+	position:relative;
+}
+.home1_news_content .sticky:before {
+    position:  absolute;
+    content: 'Featured';
+    right: 0px;
+    background: #06396a;
+    padding:  6px 25px;
+    color:  #fff;
+}
+.comment-list .pingback {
+    list-style: none;
+}
+
+.blog_sidebar iframe {
+    width: 100%;
+    height: 403px;
+}
+
+.carousel-control.left, .carousel-control.right{
+	background:none;
+}
+
+a.left span, a.right span {
+    font-size: 50px;
+    margin-top: 138px;
+}
+
+.block-quote {
+    padding: 17px;
+}
+
+.home1_news_img iframe {
+    width: 100%;
+    height: 200px;
+}
+
+.blog_grid_single iframe {
+    width: 100%;
+    height: 200px;
+}
+
+.issues_grid_txt iframe {
+    width: 100%;
+    height: 400px;
+}
+
+.blog_sidebar_content.issues_sidebar.left_sidebar .content_sngl h4 {
+    margin-top: 20px;
+}
+
+.page_widget .subscribe_pannel {
+    margin-top: 30px;
+}
+
+.page_widget .subscribe_pannel .input-group {
+    display: block;
+}
+
+.blog_sidebar_single.blog_readmore_single .entry-content-posts p {
+    margin: 0px;
+}
+
+.breadcrumb{
+	margin-bottom:0px;
+}
+
+.sara_education li {
+    list-style: none;
+}
+
+@media (min-width: 1024px){
+	nav.navbar.bootsnav li.dropdown ul.dropdown-menu{
+		width: 218px;
+	}
+}
+
+@media screen and (max-width:992px){
+	.minister_button .btn{
+		display:none;
+	}
+	
+}
+
+@media screen and (max-width:320px){
+a.page-numbers{
+	line-height:48px;
+}
+
+}
+
+
+@media screen and (max-width:480px){
+	.blog_sidebar .blog_sidebar_single .sticky {
+    padding: 0px !important;
+    position: relative !important;
+}
+
+.blog_sidebar.blog_right_sidebar .blog_sidebar_single .sticky:before {
+	right: -12px !important;
+}
+	
+
+.comment-author {
+    position: relative;
+}
+
+.comment-author .avatar {
+    position: static;
+    left: 0px;
+    top: 0px;
+	margin-bottom:10px;
+}
+.comment .comment-body {
+    margin-bottom: 30px;
+    margin-left: 0px;
+}
+
+.comment-list .comment .comment-body .comment-meta a.comment-reply-link {
+    margin-left: 0px;
+}
+
+.comment-list ul.children {
+    margin-left: 0px;
+}
+
+.comment-list ul.children .comment {
+    margin-left: 0;
+}
+	
+}
